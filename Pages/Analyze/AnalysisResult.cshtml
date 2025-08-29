@@ -1,0 +1,56 @@
+﻿@page
+@model SmartResumeAnalyzer.Pages.Analyze.AnalysisResultModel
+@{
+    ViewData["Title"] = "Resume Analysis";
+}
+
+<div class="container py-5">
+    <h1 class="mb-3">📊 Resume Analysis</h1>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">@Model.ErrorMessage</div>
+    }
+    else if (Model.Feedback != null)
+    {
+        <div class="alert alert-success">
+            <h5>Score: @Model.Feedback.Score/100</h5>
+        </div>
+
+        <div class="mb-3">
+            <h4>✅ Strengths</h4>
+            <p>@Model.Feedback.Strengths</p>
+        </div>
+
+        <div class="mb-3">
+            <h4>⚠️ Weaknesses</h4>
+            <p>@Model.Feedback.Weaknesses</p>
+        </div>
+
+        <div class="mb-3">
+            <h4>🔍 Missing Keywords</h4>
+            @if (Model.Feedback.MissingKeywords != null && Model.Feedback.MissingKeywords.Any())
+            {
+                <ul>
+                    @foreach (var keyword in Model.Feedback.MissingKeywords)
+                    {
+                        <li>@keyword</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>None</p>
+            }
+        </div>
+
+        <div class="mb-3">
+            <h4>📈 Recommendations</h4>
+            <p>@Model.Feedback.Recommendations</p>
+        </div>
+    }
+    else
+    {
+        <p>Loading analysis...</p>
+    }
+</div>

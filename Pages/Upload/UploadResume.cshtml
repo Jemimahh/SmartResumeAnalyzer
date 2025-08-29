@@ -1,0 +1,26 @@
+﻿@page
+@model SmartResumeAnalyzer.Pages.Upload.UploadResumeModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Upload Resume";
+}
+<div class="container py-5">
+    <h1 class="mb-3">🧠 Smart Resume Analyzer</h1>
+    <p>Upload your resume to get instant AI-powered feedback. Your data is never stored.</p>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="ResumeFile" class="form-label">Upload Resume (PDF or DOCX)</label>
+            <input class="form-control" type="file" id="ResumeFile" name="ResumeFile" accept=".pdf,.docx" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary" asp-route="uploadedFile">🔍 Analyze Resume</button>
+    </form>
+
+    <p class="text-muted mt-3">💡 Tip: Keep it under 2 pages for the best analysis results.</p>
+    <p class="text-muted">🔒 We do not store your resume. Analysis happens in memory only.</p>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/scripts/main.js"></script>
+}
