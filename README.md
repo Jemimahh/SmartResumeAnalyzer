@@ -9,7 +9,7 @@ An AI-powered resume analysis tool that runs locally. Upload your resume, get in
       - Strengths & Weaknesses
       - Missing Keywords
       - Recommendations
-- Secure: No data is uploaded or stored — all processing is local
+- Secure: No data is uploaded or stored, all processing is local
 - Client- and server-side file validation (.pdf, .docx, .txt)
 
 ## Stack
